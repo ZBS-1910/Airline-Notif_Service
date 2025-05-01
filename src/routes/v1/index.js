@@ -1,7 +1,11 @@
-const express= require('express');
-const router=express.Router();
+const express = require('express');
 
-const{ InfoController}=require('../../controllers');
+const { InfoController, EmailController } = require('../../controllers');
 
-router.get('/info',InfoController.info);
-module.exports=router
+const router = express.Router();
+
+router.get('/info', InfoController.info);
+
+router.post('/tickets', EmailController.create);
+
+module.exports = router;
